@@ -2,7 +2,12 @@ import { useReducer } from "react";
 import { todoReducer } from "./todoReducer";
 
 const init = () => {
-  return JSON.parse(localStorage.getItem("todos") || []);
+  const todos = localStorage.getItem("todos");
+  if (!todos) {
+    localStorage.setItem("todos", JSON.stringify([]));
+    return [];
+  }
+  return JSON.parse(todos);
 };
 
 export const useTodos = () => {
