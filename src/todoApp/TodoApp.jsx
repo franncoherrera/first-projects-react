@@ -16,7 +16,6 @@ export const TodoApp = () => {
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos) || []);
-    console.log(todos);
   }, [todos]);
 
   return (
